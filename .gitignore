@@ -1,5 +1,7 @@
-/pdf
+/pdf/
 /*.xlsx
 /venv/
 /.idea/
 /__pycache__/
+/word/
+/origin/
