@@ -2,6 +2,7 @@
 # import random
 # import re
 # import time
+import os
 import pandas as pd
 # import requests
 # from bs4 import BeautifulSoup
@@ -52,7 +53,10 @@ def get_policy_table():
         table = parse_policy_list(response)
         final_policy = final_policy.append(table, ignore_index=True)
 
+    if 'origin' not in os.listdir(os.getcwd()):
+        os.mkdir('origin')
     final_policy.to_excel('origin/sz_policy_list.xlsx', index=False)
 
     for i in range(final_policy.shape[0]):
-        ct.save_to_pdf(final_policy['url'][i], final_policy['标题'][i])
+        # ct.save_to_pdf(final_policy['url'][i], final_policy['标题'][i])
+        ct.save_to_word(final_policy['url'][i], final_policy['标题'][i])
