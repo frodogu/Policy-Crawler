@@ -1,0 +1,5 @@
+/pdf
+/*.xlsx
+/venv/
+/.idea/
+/__pycache__/
