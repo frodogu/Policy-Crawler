@@ -58,5 +58,5 @@ def get_policy_table():
     final_policy.to_excel('origin/sz_policy_list.xlsx', index=False)
 
     for i in range(final_policy.shape[0]):
-        # ct.save_to_pdf(final_policy['url'][i], final_policy['标题'][i])
-        ct.save_to_word(final_policy['url'][i], final_policy['标题'][i])
+        ct.save_to_pdf(final_policy['url'][i], final_policy['标题'][i])
+        # ct.save_to_word(final_policy['url'][i], final_policy['标题'][i])

@@ -5,8 +5,7 @@ import time
 # import pandas as pd
 import requests
 # from bs4 import BeautifulSoup
-from lxml import etree
-import pypandoc
+# from lxml import etree
 import pdfkit
 import os
 
@@ -68,16 +67,16 @@ def save_to_pdf(url, title):
     if 'pdf' not in os.listdir(os.getcwd()):
         os.mkdir('pdf')
     filename = r'pdf\sz-%s.pdf' % title
-    config = pdfkit.configuration(wkhtmltopdf=r'D:\Application\wkhtmltopdf\bin\wkhtmltopdf.exe')
+    config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
     pdfkit.from_url(url, filename, configuration=config)
 
 
-def save_to_word(url, title):
-    if 'word' not in os.listdir(os.getcwd()):
-        os.mkdir('word')
-    filename = r'word\sz-%s.docx' % title
-    response = get_url(url)
-    pypandoc.convert_text(response, 'docx', format='html', outputfile=filename)  # 将网页直接转换成docx
+# def save_to_word(url, title):
+#     if 'word' not in os.listdir(os.getcwd()):
+#         os.mkdir('word')
+#     filename = r'word\sz-%s.docx' % title
+#     response = get_url(url)
+#     pypandoc.convert_text(response, 'docx', format='html', outputfile=filename)  # 将网页直接转换成docx
 
 
 def getURL(url, tries_num=5, sleep_time=0, time_out=10, max_retry=5):
